@@ -54,6 +54,14 @@ class StreamCheck {
         OR
 
         list.stream().filter(i -> i%2!=0).map(i->i*2).sorted().forEach(x -> System.out.println(x));
+        
+        sum up the sorted values
+
+        int sum = list.stream()
+                        .filter(i -> i%2!=0)
+                        .map(i->i*2)
+                        .sorted()
+                        .reduce(0, (c,e) -> c+e);
      */
     void method(){
 
@@ -71,8 +79,12 @@ class StreamCheck {
         Stream<Integer> doubled = filtered.map(i -> i*2);
         // sort the doubled values
         Stream<Integer> sortedData = doubled.sorted();
+        // we want addition of this sortedData
+
+        int ans = sortedData.reduce(0, (c,e) -> c+e);
+        System.out.println(ans);
         // print the sorted data
-        sortedData.forEach(x -> System.out.println(x));
+        // sortedData.forEach(x -> System.out.println(x));
 
         // above we did list.stream() .filter() .forEach
 
